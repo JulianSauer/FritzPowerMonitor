@@ -1,7 +1,7 @@
 package fritzbox
 
 import (
-    "github.com/JulianSauer/MeasureMessage/dto"
+    "github.com/JulianSauer/FritzPowerMonitor/dto"
     "github.com/labstack/echo"
     "log"
     "net/http"

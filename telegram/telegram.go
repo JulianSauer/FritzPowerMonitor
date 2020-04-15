@@ -4,8 +4,8 @@ import (
     "bytes"
     "encoding/json"
     "errors"
-    "github.com/JulianSauer/MeasureMessage/config"
-    "github.com/JulianSauer/MeasureMessage/dto"
+    "github.com/JulianSauer/FritzPowerMonitor/config"
+    "github.com/JulianSauer/FritzPowerMonitor/dto"
     "io/ioutil"
     "net/http"
 )

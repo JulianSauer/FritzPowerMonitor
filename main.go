@@ -1,8 +1,8 @@
 package main
 
 import (
-    "github.com/JulianSauer/MeasureMessage/config"
-    "github.com/JulianSauer/MeasureMessage/fritzbox"
+    "github.com/JulianSauer/FritzPowerMonitor/config"
+    "github.com/JulianSauer/FritzPowerMonitor/fritzbox"
     "github.com/labstack/echo"
 )
 
