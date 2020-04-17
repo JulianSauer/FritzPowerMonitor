@@ -4,6 +4,7 @@ import (
     "github.com/JulianSauer/FritzPowerMonitor/dto"
     "github.com/JulianSauer/FritzPowerMonitor/telegram"
     "log"
+    "strconv"
     "time"
 )
 
@@ -17,7 +18,20 @@ func monitorDevice(deviceToMonitor *dto.MonitorDevice) error {
         device, _ := getDeviceByName(deviceToMonitor.Name)
         for start := time.Now(); int64(time.Now().Sub(start)/time.Second) < deviceToMonitor.TTL; time.Sleep(time.Duration(deviceToMonitor.Interval) * time.Second) {
             log.Println("Checking on device " + deviceToMonitor.Name)
-            if device.Powermeter.Energy < deviceToMonitor.PowerThreshold || device.Powermeter.Power < deviceToMonitor.PowerThreshold {
+
+            energy, e := strconv.ParseInt(device.Powermeter.Energy, 10, 64)
+            if e != nil {
+                log.Println(e.Error())
+                return
+            }
+
+            power, e := strconv.ParseInt(device.Powermeter.Power, 10, 64)
+            if e != nil {
+                log.Println(e.Error())
+                return
+            }
+
+            if energy < deviceToMonitor.EnergyThreshold || power < deviceToMonitor.PowerThreshold {
                 message := "Threshold reached for " + device.Name
                 log.Println(message)
                 if e := telegram.SendMessage(message); e != nil {
