@@ -1,0 +1,10 @@
+version: '3.6'
+services:
+  fritz-power-monitor:
+    image: fritz-power-monitor:latest
+    build: .
+    #restart: always
+    ports:
+      - 8080:8080
+    volumes:
+      - ${PWD}/config.json:/bin/config.json
