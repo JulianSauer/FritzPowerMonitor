@@ -37,8 +37,8 @@ Returns power and energy of the given smart plug.
 Body:
   {
     "name": "FRITZ!DECT 200 #1",
-    "timeToLive": 60,
-    "interval": 5,
+    "timeToLive": "60",
+    "interval": "5",
     "powerThreshold": "20000",
     "energyThreshold": "0"
   }
