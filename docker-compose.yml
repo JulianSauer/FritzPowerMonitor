@@ -3,7 +3,7 @@ services:
   fritz-power-monitor:
     image: fritz-power-monitor:latest
     build: .
-    #restart: always
+    restart: always
     ports:
       - 8080:8080
     volumes:
