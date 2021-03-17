@@ -6,4 +6,5 @@ type MonitorDevice struct {
     Interval        int64  `json:"interval,string"`
     PowerThreshold  int64  `json:"powerThreshold,string"`
     EnergyThreshold int64  `json:"energyThreshold,string"`
+    Message         string `json:"message,omitempty"`
 }

@@ -32,8 +32,11 @@ func monitorDevice(deviceToMonitor *dto.MonitorDevice) error {
             }
 
             if energy < deviceToMonitor.EnergyThreshold || power < deviceToMonitor.PowerThreshold {
-                message := "Threshold reached for " + device.Name
-                log.Println(message)
+                message := deviceToMonitor.Message
+                if message == "" {
+                    message = "Threshold reached for " + device.Name
+                }
+                log.Println("Threshold reached for " + device.Name)
                 if e := telegram.SendMessage(message); e != nil {
                     log.Println(e.Error())
                 }
